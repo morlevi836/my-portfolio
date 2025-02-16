@@ -3,6 +3,7 @@
 import { Menu } from "lucide-react";
 import { useState } from "react";
 import ThemeToggle from "./ThemeToggle";
+import { toast } from "@/hooks/use-toast";
 
 const MobileMenu = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -32,6 +33,20 @@ const MobileMenu = () => {
               </a>
             ),
           )}
+
+          {/* Resume Download Button for Mobile */}
+          <a
+            href="/resume/Resume - Mor Levi.pdf"
+            download
+            className="block px-6 py-3 hover:bg-gray-100 dark:hover:bg-gray-700"
+            onClick={() =>
+              toast({
+                title: "Resume Downloaded Successfully!",
+              })
+            }
+          >
+            Download Resume
+          </a>
         </div>
       )}
     </div>

@@ -56,10 +56,10 @@ const ContactForm = () => {
         <Input
           placeholder="Your Name"
           {...register("name")}
-          className="border border-gray-300 bg-gray-100 text-gray-900 dark:border-gray-700 dark:bg-gray-800 dark:text-gray-100"
+          className="w-full border border-gray-300 bg-gray-100 text-gray-900 dark:border-gray-700 dark:bg-gray-800 dark:text-gray-100"
         />
         {errors.name && (
-          <p className="text-sm text-red-500">{errors.name.message}</p>
+          <p className="mt-2 text-sm text-red-500">{errors.name.message}</p>
         )}
       </div>
 
@@ -68,10 +68,10 @@ const ContactForm = () => {
           type="email"
           placeholder="Your Email"
           {...register("email")}
-          className="border border-gray-300 bg-gray-100 text-gray-900 dark:border-gray-700 dark:bg-gray-800 dark:text-gray-100"
+          className="w-full border border-gray-300 bg-gray-100 text-gray-900 dark:border-gray-700 dark:bg-gray-800 dark:text-gray-100"
         />
         {errors.email && (
-          <p className="text-sm text-red-500">{errors.email.message}</p>
+          <p className="mt-2 text-sm text-red-500">{errors.email.message}</p>
         )}
       </div>
 
@@ -80,10 +80,10 @@ const ContactForm = () => {
           placeholder="Your Message"
           rows={5}
           {...register("message")}
-          className="resize-none border border-gray-300 bg-gray-100 text-gray-900 dark:border-gray-700 dark:bg-gray-800 dark:text-gray-100"
+          className="w-full resize-none border border-gray-300 bg-gray-100 text-gray-900 dark:border-gray-700 dark:bg-gray-800 dark:text-gray-100"
         />
         {errors.message && (
-          <p className="text-sm text-red-500">{errors.message.message}</p>
+          <p className="mt-2 text-sm text-red-500">{errors.message.message}</p>
         )}
       </div>
 

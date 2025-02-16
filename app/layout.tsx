@@ -1,18 +1,21 @@
 import type { Metadata } from "next";
 import { Assistant } from "next/font/google";
 import "./globals.css";
-import { Toaster } from "@/components/ui/toaster";
 import { ThemeProvider } from "@/components/ThemeProvider";
+import LoadingScreen from "@/components/LoadingScreen";
 
 const assistant = Assistant({
   variable: "--font-assistant",
   subsets: ["latin"],
-  weight: ["400", "700"], // Choose the weights you need
+  weight: ["400", "700"],
 });
 
 export const metadata: Metadata = {
   title: "My Portfolio",
   description: "Welcome to my portfolio built with Next.js and TypeScript",
+  icons: {
+    icon: "/icons/favicon.ico", // Path to your favicon in the public directory
+  },
 };
 
 export default function RootLayout({
@@ -22,11 +25,11 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className="font-assistant h-screen w-screen overflow-x-hidden">
+      <body
+        className={`${assistant.variable} h-screen w-screen overflow-x-hidden font-sans`}
+      >
         <ThemeProvider attribute="class" defaultTheme="system">
-          <Toaster />
-          {children}
-          {/* <CustomCursor />  */}
+          <LoadingScreen>{children}</LoadingScreen>
         </ThemeProvider>
       </body>
     </html>

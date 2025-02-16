@@ -1,8 +1,9 @@
+// components/SkillsSection.tsx
 "use client";
 
 import { motion } from "framer-motion";
 import { SkillCategory } from "./SkillCategory";
-import { skills } from "@/constant/skills";
+import { allAkills } from "@/constant/skills";
 
 const SkillsSection = () => {
   return (
@@ -20,7 +21,7 @@ const SkillsSection = () => {
           My Skills
         </motion.h2>
 
-        {skills.map((category, index) => (
+        {allAkills.map((category, index) => (
           <SkillCategory
             key={index}
             title={category.title}

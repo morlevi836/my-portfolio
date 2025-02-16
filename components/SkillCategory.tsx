@@ -1,3 +1,4 @@
+// components/SkillCategory.tsx
 "use client";
 
 import { motion } from "framer-motion";

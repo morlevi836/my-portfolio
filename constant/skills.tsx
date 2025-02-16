@@ -34,19 +34,12 @@ import {
   SiTailwindcss,
   SiMongoose,
   SiPostman,
+  SiDocker,
 } from "react-icons/si";
-import {
-  MdOutlinePsychology,
-  MdPeople,
-  MdVisibility,
-  MdWork,
-  MdTimeline,
-  MdLightbulb,
-} from "react-icons/md";
 import { LuLogs } from "react-icons/lu";
 import { DiMysql } from "react-icons/di";
 
-export const skills = [
+export const allAkills = [
   {
     title: "Languages",
     skills: [
@@ -300,4 +293,139 @@ export const skills = [
   //     },
   //   ],
   // },
+];
+
+export const skills = [
+  {
+    name: "JavaScript",
+    icon: <FaJs style={{ color: "#f7df1e" }} />, // Yellow
+  },
+  {
+    name: "Java",
+    icon: <FaJava style={{ color: "#007396" }} />, // Red
+  },
+  {
+    name: "Python",
+    icon: <FaPython style={{ color: "#3776ab" }} />, // Blue
+  },
+  {
+    name: "C++",
+    icon: <SiCplusplus style={{ color: "#00599c" }} />, // Purple
+  },
+  {
+    name: "HTML",
+    icon: <FaHtml5 style={{ color: "#e34f26" }} />, // Orange
+  },
+  {
+    name: "CSS",
+    icon: <FaCss3Alt style={{ color: "#1572b6" }} />, // Blue
+  },
+  {
+    name: "TypeScript",
+    icon: <SiTypescript style={{ color: "#3178c6" }} />, // Blue
+  },
+  {
+    name: "React.js",
+    icon: <FaReact style={{ color: "#61dafb" }} />, // Cyan
+  },
+  {
+    name: "Next.js",
+    icon: <SiNextdotjs style={{ color: "#000000" }} />, // Black
+  },
+  {
+    name: "Zod",
+    icon: <SiZod style={{ color: "#8a2be2" }} />, // Purple
+  },
+  {
+    name: "React Hook Form",
+    icon: <SiReacthookform style={{ color: "#ec5990" }} />, // Red
+  },
+  {
+    name: "Tailwind CSS",
+    icon: <SiTailwindcss style={{ color: "#38b2ac" }} />, // Teal
+  },
+  {
+    name: "Material-UI",
+    icon: <SiMui style={{ color: "#0081cb" }} />, // Blue
+  },
+  {
+    name: "ShadCN UI",
+    icon: <SiShadcnui style={{ color: "#000000" }} />, // Black
+  },
+  {
+    name: "DaisyUI",
+    icon: <SiDaisyui style={{ color: "#5a67d8" }} />, // Indigo
+  },
+  {
+    name: "Chakra UI",
+    icon: <SiChakraui style={{ color: "#319795" }} />, // Teal
+  },
+  {
+    name: "Node.js",
+    icon: <FaNodeJs style={{ color: "#68a063" }} />, // Green
+  },
+  {
+    name: "NestJS",
+    icon: <SiNestjs style={{ color: "#e0234e" }} />, // Red
+  },
+  {
+    name: "Express.js",
+    icon: <SiExpress style={{ color: "#000000" }} />, // Black
+  },
+  {
+    name: "MongoDB",
+    icon: <SiMongodb style={{ color: "#47a248" }} />, // Green
+  },
+  {
+    name: "Mongoose",
+    icon: <SiMongoose style={{ color: "#880000" }} />, // Red
+  },
+  {
+    name: "MySQL",
+    icon: <DiMysql style={{ color: "#4479a1" }} />, // Blue
+  },
+  {
+    name: "PostgreSQL",
+    icon: <SiPostgresql style={{ color: "#336791" }} />, // Blue
+  },
+  {
+    name: "TypeORM",
+    icon: <SiTypeorm style={{ color: "#e535ab" }} />, // Pink
+  },
+  {
+    name: "Prisma ORM",
+    icon: <SiPrisma style={{ color: "#2d3748" }} />, // Gray
+  },
+  {
+    name: "Git",
+    icon: <FaGitAlt style={{ color: "#f5455c" }} />, // Red
+  },
+  {
+    name: "Github",
+    icon: <FaGithub style={{ color: "#000000" }} />, // Black
+  },
+  {
+    name: "Postman",
+    icon: <SiPostman style={{ color: "#f05032" }} />, // Orange
+  },
+  {
+    name: "Docker",
+    icon: <SiDocker style={{ color: "#336791" }} />, // Orange
+  },
+  {
+    name: "Adobe XD",
+    icon: <SiAdobexd style={{ color: "#ff61f6" }} />, // Pink
+  },
+  {
+    name: "Figma",
+    icon: <FaFigma style={{ color: "#a259ff" }} />, // Purple
+  },
+  {
+    name: "Rocket.Chat",
+    icon: <SiRocketdotchat style={{ color: "#f5455c" }} />, // Red
+  },
+  {
+    name: "AWS S3",
+    icon: <FaAws style={{ color: "#ff9900" }} />, // Orange
+  },
 ];

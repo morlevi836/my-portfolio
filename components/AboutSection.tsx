@@ -1,38 +1,21 @@
+// components/AboutSection.tsx
 "use client";
 
 import { motion } from "framer-motion";
-import {
-  FaUser,
-  FaGraduationCap,
-  FaAward,
-  FaCode,
-  FaLightbulb,
-  FaHandsHelping,
-} from "react-icons/fa";
+import { FaUser, FaGraduationCap, FaAward } from "react-icons/fa";
 
 const AboutSection = () => {
   return (
-    <section
-      id="about"
-      className="bg-gradient-to-b from-gray-50 to-gray-100 py-20 text-gray-800 dark:from-gray-900 dark:to-gray-800 dark:text-white"
-    >
+    <section className="pt-32">
       <div className="container mx-auto px-4">
-        <motion.h2
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          className="mb-16 text-center text-4xl font-bold sm:text-5xl"
-        >
-          About Me
-        </motion.h2>
-
         {/* Introduction */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.2 }}
+          transition={{ duration: 0.6 }}
           className="mb-16 text-center"
         >
+          <h2 className="mb-6 text-4xl font-bold sm:text-5xl">About Me</h2>
           <p className="mx-auto max-w-2xl text-lg text-gray-600 dark:text-gray-300 sm:text-xl">
             Hi, I'm{" "}
             <span className="font-semibold text-blue-600 dark:text-blue-400">
@@ -48,143 +31,76 @@ const AboutSection = () => {
           </p>
         </motion.div>
 
-        {/* Cards Grid */}
-        <div className="grid grid-cols-1 gap-6 sm:gap-8 md:grid-cols-2 lg:grid-cols-3">
-          {/* Card 1: Experience */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            className="rounded-xl bg-white p-6 shadow-lg transition-all duration-300 hover:shadow-xl dark:bg-gray-800 sm:p-8"
-          >
-            <div className="mb-4 flex justify-center">
-              <FaUser
-                className="text-4xl text-blue-600 dark:text-blue-400"
-                aria-label="Experience"
-              />
-            </div>
-            <h3 className="mb-4 text-center text-xl font-semibold sm:text-2xl">
-              Experience
-            </h3>
-            <p className="text-center text-sm text-gray-600 dark:text-gray-300 sm:text-base">
-              I’ve spent 3 years in the Israeli Air Force, leading the
-              development of mission-critical systems that improved efficiency
-              and streamlined workflows.
-            </p>
-          </motion.div>
+        {/* Timeline Layout */}
+        <div className="relative mx-auto max-w-4xl">
+          {/* Timeline Line */}
+          <div className="absolute left-1/2 top-0 z-0 h-full w-1 -translate-x-1/2 transform bg-gray-200 dark:bg-gray-700" />
 
-          {/* Card 2: Education */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.4 }}
-            className="rounded-xl bg-white p-6 shadow-lg transition-all duration-300 hover:shadow-xl dark:bg-gray-800 sm:p-8"
-          >
-            <div className="mb-4 flex justify-center">
-              <FaGraduationCap
-                className="text-4xl text-blue-600 dark:text-blue-400"
-                aria-label="Education"
-              />
-            </div>
-            <h3 className="mb-4 text-center text-xl font-semibold sm:text-2xl">
-              Education
-            </h3>
-            <p className="text-center text-sm text-gray-600 dark:text-gray-300 sm:text-base">
-              B.Sc. in Computer Science from Ashkelon Academic College.
-              Graduated with a GPA of 87 and developed a web-based job
-              marketplace as my final project.
-            </p>
-          </motion.div>
+          {/* Timeline Items */}
+          <div className="space-y-16">
+            {/* Experience */}
+            <motion.div
+              initial={{ opacity: 0, x: -20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              className="relative z-10 flex items-center justify-between"
+            >
+              <div className="w-1/2 pr-8 text-right">
+                <h3 className="text-2xl font-semibold">Experience</h3>
+                <p className="text-gray-600 dark:text-gray-300">
+                  I’ve spent 3 years in the Israeli Air Force, leading the
+                  development of mission-critical systems that improved
+                  efficiency and streamlined workflows.
+                </p>
+              </div>
+              <div className="z-10 flex h-12 w-12 items-center justify-center rounded-full bg-blue-600 text-white shadow-lg dark:bg-blue-400">
+                <FaUser className="text-2xl" />
+              </div>
+              <div className="w-1/2 pl-8" />
+            </motion.div>
 
-          {/* Card 3: Achievements */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.6 }}
-            className="rounded-xl bg-white p-6 shadow-lg transition-all duration-300 hover:shadow-xl dark:bg-gray-800 sm:p-8"
-          >
-            <div className="mb-4 flex justify-center">
-              <FaAward
-                className="text-4xl text-blue-600 dark:text-blue-400"
-                aria-label="Achievements"
-              />
-            </div>
-            <h3 className="mb-4 text-center text-xl font-semibold sm:text-2xl">
-              Achievements
-            </h3>
-            <p className="text-center text-sm text-gray-600 dark:text-gray-300 sm:text-base">
-              Awarded the Brigadier General Award for developing a project that
-              streamlined product delivery and request management in the Air
-              Force.
-            </p>
-          </motion.div>
+            {/* Education */}
+            <motion.div
+              initial={{ opacity: 0, x: 20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.6, delay: 0.4 }}
+              className="relative z-10 flex items-center justify-between"
+            >
+              <div className="w-1/2 pr-8" />
+              <div className="z-10 flex h-12 w-12 items-center justify-center rounded-full bg-blue-600 text-white shadow-lg dark:bg-blue-400">
+                <FaGraduationCap className="text-2xl" />
+              </div>
+              <div className="w-1/2 pl-8 text-left">
+                <h3 className="text-2xl font-semibold">Education</h3>
+                <p className="text-gray-600 dark:text-gray-300">
+                  B.Sc. in Computer Science from Ashkelon Academic College.
+                  Graduated with a GPA of 87 and developed a web-based job
+                  marketplace as my final project.
+                </p>
+              </div>
+            </motion.div>
 
-          {/* Card 4: Skills */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.8 }}
-            className="rounded-xl bg-white p-6 shadow-lg transition-all duration-300 hover:shadow-xl dark:bg-gray-800 sm:p-8"
-          >
-            <div className="mb-4 flex justify-center">
-              <FaCode
-                className="text-4xl text-blue-600 dark:text-blue-400"
-                aria-label="Skills"
-              />
-            </div>
-            <h3 className="mb-4 text-center text-xl font-semibold sm:text-2xl">
-              Skills
-            </h3>
-            <p className="text-center text-sm text-gray-600 dark:text-gray-300 sm:text-base">
-              Proficient in React, TypeScript, Node.js, MongoDB, and Figma.
-              Skilled in RESTful APIs, Git, and cloud services like AWS S3.
-            </p>
-          </motion.div>
-
-          {/* Card 5: Continuous Learning */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 1.0 }}
-            className="rounded-xl bg-white p-6 shadow-lg transition-all duration-300 hover:shadow-xl dark:bg-gray-800 sm:p-8"
-          >
-            <div className="mb-4 flex justify-center">
-              <FaLightbulb
-                className="text-4xl text-blue-600 dark:text-blue-400"
-                aria-label="Continuous Learning"
-              />
-            </div>
-            <h3 className="mb-4 text-center text-xl font-semibold sm:text-2xl">
-              Continuous Learning
-            </h3>
-            <p className="text-center text-sm text-gray-600 dark:text-gray-300 sm:text-base">
-              Always exploring new technologies. Recently completed a 62-hour
-              web development bootcamp and diving deeper into advanced
-              TypeScript.
-            </p>
-          </motion.div>
-
-          {/* Card 6: Personality & Values */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 1.2 }}
-            className="rounded-xl bg-white p-6 shadow-lg transition-all duration-300 hover:shadow-xl dark:bg-gray-800 sm:p-8"
-          >
-            <div className="mb-4 flex justify-center">
-              <FaHandsHelping
-                className="text-4xl text-blue-600 dark:text-blue-400"
-                aria-label="Personality & Values"
-              />
-            </div>
-            <h3 className="mb-4 text-center text-xl font-semibold sm:text-2xl">
-              Personality & Values
-            </h3>
-            <p className="text-center text-sm text-gray-600 dark:text-gray-300 sm:text-base">
-              A collaborative team player who values adaptability, attention to
-              detail, and using technology to solve real-world problems.
-            </p>
-          </motion.div>
+            {/* Achievements */}
+            <motion.div
+              initial={{ opacity: 0, x: -20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.6, delay: 0.6 }}
+              className="relative z-10 flex items-center justify-between"
+            >
+              <div className="w-1/2 pr-8 text-right">
+                <h3 className="text-2xl font-semibold">Achievements</h3>
+                <p className="text-gray-600 dark:text-gray-300">
+                  Awarded the Brigadier General Award for developing a project
+                  that streamlined product delivery and request management in
+                  the Air Force.
+                </p>
+              </div>
+              <div className="z-10 flex h-12 w-12 items-center justify-center rounded-full bg-blue-600 text-white shadow-lg dark:bg-blue-400">
+                <FaAward className="text-2xl" />
+              </div>
+              <div className="w-1/2 pl-8" />
+            </motion.div>
+          </div>
         </div>
       </div>
     </section>
