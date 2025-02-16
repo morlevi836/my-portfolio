@@ -1,6 +1,8 @@
-import Article from "@/components/Article";
 import { getArticleById } from "@/lib/devto";
 import type { Metadata } from "next";
+import dynamic from "next/dynamic";
+
+const Article = dynamic(() => import("@/components/Article"));
 
 // Correct usage for generating metadata
 export async function generateMetadata({

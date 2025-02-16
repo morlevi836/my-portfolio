@@ -12,32 +12,22 @@ import {
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 
-// Sample featured projects data
-const featuredProjects = [
-  {
-    id: 1,
-    title: "Project 1",
-    description: "A modern web application built with React and Tailwind CSS.",
-    tags: ["React", "Tailwind CSS", "Next.js"],
-    link: "#",
-    image: "/images/project1.jpg",
-  },
-  {
-    id: 2,
-    title: "Project 2",
-    description: "An e-commerce platform with seamless user experience.",
-    tags: ["Node.js", "Express", "MongoDB"],
-    link: "#",
-    image: "/images/project2.jpg",
-  },
-  {
-    id: 3,
-    title: "Project 3",
-    description: "A portfolio website showcasing creative work.",
-    tags: ["HTML", "CSS", "JavaScript"],
-    link: "#",
-    image: "/images/project3.jpg",
-  },
+const featuredProjects: {
+  id: number;
+  title: string;
+  description: string;
+  tags: string[];
+  link: string;
+  image: string;
+}[] = [
+  // {
+  //   id: 1,
+  //   title: "Project 1",
+  //   description: "A modern web application built with React and Tailwind CSS.",
+  //   tags: ["React", "Tailwind CSS", "Next.js"],
+  //   link: "#",
+  //   image: "/images/project1.jpg",
+  // },
 ];
 
 const FeaturedProjects = () => {
@@ -55,45 +45,52 @@ const FeaturedProjects = () => {
         </motion.h2>
 
         {/* Featured Projects Grid */}
-        <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-          {featuredProjects.map((project, index) => (
-            <motion.div
-              key={project.id}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: index * 0.1 }}
-            >
-              <Card className="h-full transition-transform hover:scale-105">
-                <CardHeader>
-                  <img
-                    src={project.image}
-                    alt={project.title}
-                    className="h-48 w-full rounded-t-lg object-cover"
-                  />
-                </CardHeader>
-                <CardContent>
-                  <CardTitle>{project.title}</CardTitle>
-                  <CardDescription>{project.description}</CardDescription>
-                  <div className="mt-4 flex flex-wrap gap-2">
-                    {project.tags.map((tag, idx) => (
-                      <span
-                        key={idx}
-                        className="rounded-full bg-gray-200 px-3 py-1 text-sm text-gray-700 dark:bg-gray-700 dark:text-gray-200"
-                      >
-                        {tag}
-                      </span>
-                    ))}
-                  </div>
-                </CardContent>
-                <CardFooter>
-                  <Button variant="outline" className="w-full">
-                    View Project
-                  </Button>
-                </CardFooter>
-              </Card>
-            </motion.div>
-          ))}
-        </div>
+        {featuredProjects.length > 0 ? (
+          <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+            {featuredProjects.map((project, index) => (
+              <motion.div
+                key={project.id}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: index * 0.1 }}
+              >
+                <Card className="h-full transition-transform hover:scale-105">
+                  <CardHeader>
+                    <img
+                      src={project.image}
+                      alt={project.title}
+                      className="h-48 w-full rounded-t-lg object-cover"
+                    />
+                  </CardHeader>
+                  <CardContent>
+                    <CardTitle>{project.title}</CardTitle>
+                    <CardDescription>{project.description}</CardDescription>
+                    <div className="mt-4 flex flex-wrap gap-2">
+                      {project.tags.map((tag, idx) => (
+                        <span
+                          key={idx}
+                          className="rounded-full bg-gray-200 px-3 py-1 text-sm text-gray-700 dark:bg-gray-700 dark:text-gray-200"
+                        >
+                          {tag}
+                        </span>
+                      ))}
+                    </div>
+                  </CardContent>
+                  <CardFooter>
+                    <Button variant="outline" className="w-full">
+                      View Project
+                    </Button>
+                  </CardFooter>
+                </Card>
+              </motion.div>
+            ))}
+          </div>
+        ) : (
+          <div className="text-center text-gray-600 dark:text-gray-300">
+            <p className="text-xl">No featured projects at the moment.</p>
+            <p className="mt-2">Check back soon for updates!</p>
+          </div>
+        )}
 
         {/* View All Projects Button */}
         <div className="mt-12 flex justify-center">
