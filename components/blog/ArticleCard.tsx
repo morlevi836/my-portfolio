@@ -12,6 +12,7 @@ import {
 import { Button } from "@/components/ui/button";
 import { Article } from "@/types/Article";
 import Image from "next/image";
+import { useArticleStore } from "@/store/useArticleStore"; // Import Zustand store
 
 export const ArticleCard = ({
   article,
@@ -22,19 +23,23 @@ export const ArticleCard = ({
   isGridView: boolean;
   normalizeTags: (tags: string[] | string) => string[];
 }) => {
-  const tags = normalizeTags(article.tag_list);
+  const setArticleId = useArticleStore((state) => state.setArticleId); // Zustand setter function
+
+  const handleClick = () => {
+    setArticleId(article.id.toString()); // Save the article ID
+  };
 
   return (
-    <Link href={`/blog/${article.id}`} className="block h-full">
+    <Link
+      href={`/blog/${article.id}`}
+      className="block h-full"
+      onClick={handleClick}
+    >
       <Card
-        className={`flex ${
-          isGridView ? "flex-col" : "flex-row items-start"
-        } h-full bg-gradient-to-br from-blue-50 to-purple-50 transition-all duration-300 hover:scale-105 hover:shadow-lg dark:from-gray-800 dark:to-gray-900`}
+        className={`flex ${isGridView ? "flex-col" : "flex-row items-start"} h-full bg-gradient-to-br from-blue-50 to-purple-50 transition-all duration-300 hover:scale-105 hover:shadow-lg dark:from-gray-800 dark:to-gray-900`}
       >
         <div
-          className={`${
-            isGridView ? "h-48 w-full" : "h-full w-64 flex-shrink-0"
-          } overflow-hidden rounded-t-lg ${!isGridView && "rounded-l-lg rounded-tr-none"}`}
+          className={`${isGridView ? "h-48 w-full" : "h-full w-64 flex-shrink-0"} overflow-hidden rounded-t-lg ${!isGridView && "rounded-l-lg rounded-tr-none"}`}
         >
           <Image
             src={
@@ -43,36 +48,13 @@ export const ArticleCard = ({
               "/images/no-image-placeholder.jpg"
             }
             alt={article.title}
-            width={256} // Adjust width (w-64 = 256px)
-            height={isGridView ? 192 : 256} // Adjust height (h-48 = 192px for grid view)
+            width={256}
+            height={isGridView ? 192 : 256}
             className="h-full w-full object-cover"
             draggable={false}
           />
         </div>
         <div className={`flex flex-1 flex-col p-6 ${isGridView ? "" : "pl-8"}`}>
-          <div className="absolute right-2 top-2 flex gap-2">
-            {article.public_reactions_count > 200 && (
-              <span className="rounded-full bg-indigo-400 px-3 py-1 text-sm text-white shadow-md">
-                Top Pick
-              </span>
-            )}
-            {article.public_reactions_count > 100 && (
-              <span className="rounded-full bg-pink-400 px-3 py-1 text-sm text-white shadow-md">
-                Trending
-              </span>
-            )}
-            {article.public_reactions_count > 50 && (
-              <span className="rounded-full bg-yellow-400 px-3 py-1 text-sm text-white shadow-md">
-                Popular
-              </span>
-            )}
-            {new Date(article.published_at).getTime() >
-              Date.now() - 7 * 24 * 60 * 60 * 1000 && (
-              <span className="rounded-full bg-green-400 px-3 py-1 text-sm text-white shadow-md">
-                New
-              </span>
-            )}
-          </div>
           <CardHeader>
             <CardTitle className="text-2xl font-bold">
               {article.title}
@@ -83,7 +65,7 @@ export const ArticleCard = ({
           </CardHeader>
           <CardContent className="mt-4 flex-1">
             <div className="flex flex-wrap gap-2">
-              {tags.map((tag) => (
+              {normalizeTags(article.tag_list).map((tag) => (
                 <span
                   key={tag}
                   className="rounded-full bg-gray-200 px-3 py-1 text-sm text-gray-700 shadow-sm transition-all duration-300 hover:bg-gray-300 dark:bg-gray-700 dark:text-gray-200 dark:hover:bg-gray-600"
@@ -92,11 +74,6 @@ export const ArticleCard = ({
                 </span>
               ))}
             </div>
-            {article.reading_time_minutes && (
-              <div className="mt-4 text-sm text-gray-500 dark:text-gray-400">
-                {article.reading_time_minutes} min read
-              </div>
-            )}
           </CardContent>
           <CardFooter className="mt-6">
             <Button className="w-full bg-blue-600 hover:bg-blue-500 dark:bg-blue-700 dark:hover:bg-blue-600">

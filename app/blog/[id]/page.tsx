@@ -1,56 +1,63 @@
-import { getArticleById } from "@/lib/devto";
-import type { Metadata } from "next";
+"use client";
+
+import { useEffect, useState, useCallback } from "react";
+import { useParams } from "next/navigation";
 import dynamic from "next/dynamic";
+import { SkeletonLoading } from "@/components/SkeletonLoading";
+import { getArticleById } from "@/lib/devto";
+import { Skeleton } from "@/components/ui/skeleton";
 
-const Article = dynamic(() => import("@/components/Article"));
+const Article = dynamic(() => import("@/components/Article"), { ssr: false });
 
-// Correct usage for generating metadata
-export async function generateMetadata({
-  params,
-}: {
-  params?: { id?: string }; // Mark params as optional
-}): Promise<Metadata> {
-  if (!params?.id) {
-    return { title: "Article Not Found", description: "No article available." };
-  }
+export default function ArticlePage() {
+  const [article, setArticle] = useState<any>(null);
+  const [loading, setLoading] = useState(true);
 
-  const article = await getArticleById(params.id);
+  const { id } = useParams();
 
-  return {
-    title: article?.title || "Article Not Found",
-    description: article?.description || "Read this article on my blog.",
-    openGraph: {
-      images: [article?.cover_image || ""],
-    },
-  };
-}
+  const fetchArticle = useCallback(async (id: string) => {
+    setLoading(true);
+    try {
+      const data = await getArticleById(id);
+      setArticle(data);
+    } catch (error) {
+      console.error("Failed to fetch article", error);
+    } finally {
+      setLoading(false);
+    }
+  }, []);
 
-export default async function ArticlePage({
-  params,
-}: {
-  params: { id: string };
-}) {
-  // Ensure params is awaited before accessing its properties
-  const { id } = params;
+  useEffect(() => {
+    if (id) {
+      fetchArticle(id.toString());
+    } else {
+      setLoading(false);
+    }
+  }, [id, fetchArticle]);
 
-  // Await the article data
-  const article = await getArticleById(id);
-
-  // Fetch related articles based on the current article's tags
-  if (!article) {
+  if (loading) {
     return (
-      <main className="flex flex-col bg-white text-gray-800 dark:bg-gray-900 dark:text-white">
-        <div className="container mx-auto px-4 py-32 text-center">
-          <h2 className="text-4xl font-bold sm:text-5xl">Article Not Found</h2>
-        </div>
-      </main>
+      <div className="animate-pulse space-y-6 px-20 pb-20 pt-28">
+        <Skeleton className="h-72 w-full rounded-lg" />
+        <Skeleton className="h-4 w-full" />
+        <Skeleton className="h-4 w-5/6" />
+        <Skeleton className="h-4 w-4/6" />
+      </div>
     );
   }
 
   return (
     <main className="flex flex-col bg-white text-gray-800 dark:bg-gray-900 dark:text-white">
       <div className="container mx-auto px-4 py-32">
-        <Article article={article} />
+        {article ? (
+          <Article article={article} />
+        ) : (
+          <div className="text-center">
+            <h2 className="text-4xl font-bold sm:text-5xl">
+              Article Not Found
+            </h2>
+          </div>
+        )}
       </div>
     </main>
   );
