@@ -33,6 +33,7 @@ export default function Article({ article }: { article: ArticleContent }) {
               layout="fill"
               objectFit="cover"
               className="rounded-lg"
+              draggable={false}
             />
           </div>
         )}
@@ -64,7 +65,7 @@ export default function Article({ article }: { article: ArticleContent }) {
       )}
 
       {/* Article Content */}
-      <article className="prose prose-lg dark:prose-invert mx-auto max-w-4xl">
+      <article className="prose prose-lg mx-auto max-w-4xl dark:prose-invert">
         <div dangerouslySetInnerHTML={{ __html: article.body_html }} />
       </article>
 

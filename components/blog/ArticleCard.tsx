@@ -11,6 +11,7 @@ import {
 } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Article } from "@/types/Article";
+import Image from "next/image";
 
 export const ArticleCard = ({
   article,
@@ -35,14 +36,17 @@ export const ArticleCard = ({
             isGridView ? "h-48 w-full" : "h-full w-64 flex-shrink-0"
           } overflow-hidden rounded-t-lg ${!isGridView && "rounded-l-lg rounded-tr-none"}`}
         >
-          <img
+          <Image
             src={
               article.cover_image ||
               article.social_image ||
               "/images/no-image-placeholder.jpg"
             }
             alt={article.title}
+            width={256} // Adjust width (w-64 = 256px)
+            height={isGridView ? 192 : 256} // Adjust height (h-48 = 192px for grid view)
             className="h-full w-full object-cover"
+            draggable={false}
           />
         </div>
         <div className={`flex flex-1 flex-col p-6 ${isGridView ? "" : "pl-8"}`}>

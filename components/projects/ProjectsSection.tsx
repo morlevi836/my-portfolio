@@ -28,6 +28,7 @@ import {
   FaArrowDown,
   FaTimes,
 } from "react-icons/fa";
+import Image from "next/image";
 
 // Sample projects data
 const projects: {
@@ -208,10 +209,11 @@ const ProjectsSection = () => {
               >
                 <Card className="h-full transition-transform hover:scale-105">
                   <CardHeader>
-                    <img
+                    <Image
                       src={project.image}
                       alt={project.title}
-                      className="h-48 w-full rounded-t-lg object-cover"
+                      fill
+                      className="rounded-t-lg object-cover"
                     />
                   </CardHeader>
                   <CardContent>

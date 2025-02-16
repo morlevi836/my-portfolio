@@ -2,7 +2,7 @@
 
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
-import { Moon, Sun, Menu, Code } from "lucide-react";
+import { Moon, Sun, Menu } from "lucide-react";
 import { useTheme } from "next-themes";
 import Link from "next/link";
 import ScrollNavbar from "./ScrollNavbar";

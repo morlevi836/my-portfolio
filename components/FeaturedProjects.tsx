@@ -11,6 +11,7 @@ import {
 } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
+import Image from "next/image";
 
 const featuredProjects: {
   id: number;
@@ -56,10 +57,12 @@ const FeaturedProjects = () => {
               >
                 <Card className="h-full transition-transform hover:scale-105">
                   <CardHeader>
-                    <img
+                    <Image
                       src={project.image}
                       alt={project.title}
+                      fill
                       className="h-48 w-full rounded-t-lg object-cover"
+                      draggable="false"
                     />
                   </CardHeader>
                   <CardContent>

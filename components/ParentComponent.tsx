@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import CustomCursor from "./CustomCursor";
 import { Toaster } from "./ui/toaster";
 import dynamic from "next/dynamic";

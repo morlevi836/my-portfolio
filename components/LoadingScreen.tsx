@@ -7,6 +7,7 @@ import dynamic from "next/dynamic";
 import { usePathname } from "next/navigation";
 import ReadingProgressBar from "@/components/ReadingProgressBar";
 import ScrollToTopButton from "@/components/ScrollToTopButton";
+import Image from "next/image";
 
 const NavBar = dynamic(() => import("@/components/NavBar"), {
   ssr: false,
@@ -35,11 +36,13 @@ export default function LoadingScreen({
   if (loading) {
     return (
       <div className="flex h-screen items-center justify-center bg-gray-900">
-        <img
+        <Image
           src="/images/duck-loading.gif"
           alt="loading"
+          width={300} // Adjust width as needed
+          height={300} // Adjust height as needed
           className="object-cover"
-          draggable="false"
+          draggable={false}
         />
       </div>
     );

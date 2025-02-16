@@ -1,6 +1,7 @@
 "use client"; // Mark this component as client-side only
 
 import { motion } from "framer-motion";
+import Image from "next/image";
 
 interface ProjectCardProps {
   title: string;
@@ -23,10 +24,12 @@ export default function ProjectCard({
     >
       <a href={projectUrl} target="_blank" rel="noopener noreferrer">
         <div className="relative h-48">
-          <img
+          <Image
             src={imageUrl}
             alt={title}
+            fill
             className="h-full w-full object-cover"
+            draggable={false}
           />
           <div className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-0 transition-all duration-300 hover:bg-opacity-50">
             <motion.p

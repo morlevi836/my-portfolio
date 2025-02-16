@@ -1,9 +1,10 @@
 "use client";
 
 import BlogList from "@/components/blog/BlogList";
+import { ArticlesArray } from "@/types/Article";
 import { motion } from "framer-motion";
 
-export default function BlogSection({ articles }: { articles: any }) {
+export default function BlogSection({ articles }: { articles: ArticlesArray }) {
   return (
     <div className="container mx-auto px-4 py-32">
       <motion.div

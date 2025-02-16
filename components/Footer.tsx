@@ -14,13 +14,13 @@ const Footer = () => {
 
   return (
     <footer className="border-t border-gray-200 bg-white text-gray-900 dark:border-gray-800 dark:bg-gray-900 dark:text-gray-100">
-      <div className="container mx-auto px-4 py-12">
+      <div className="container mx-auto px-6 py-8 md:py-12">
         {/* Grid Layout */}
-        <div className="mb-12 grid grid-cols-1 gap-8 md:grid-cols-4">
+        <div className="grid grid-cols-1 gap-8 md:grid-cols-4">
           {/* About Section */}
           <div className="space-y-4">
-            <h3 className="text-xl font-bold">Why Hire Me?</h3>
-            <p className="text-gray-600 dark:text-gray-400">
+            <h3 className="text-lg font-bold md:text-xl">Why Hire Me?</h3>
+            <p className="text-sm text-gray-600 dark:text-gray-400 md:text-base">
               I’m a results-driven developer with a proven track record of
               delivering high-quality solutions. Let’s discuss how I can add
               value to your team.
@@ -29,47 +29,27 @@ const Footer = () => {
 
           {/* Quick Links */}
           <div className="space-y-4">
-            <h3 className="text-xl font-bold">Quick Links</h3>
+            <h3 className="text-lg font-bold md:text-xl">Quick Links</h3>
             <ul className="space-y-2">
-              <li>
-                <Link
-                  href="/about"
-                  className="text-gray-600 transition-colors hover:text-blue-600 dark:text-gray-400 dark:hover:text-blue-400"
-                >
-                  About Me
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/projects"
-                  className="text-gray-600 transition-colors hover:text-blue-600 dark:text-gray-400 dark:hover:text-blue-400"
-                >
-                  My Projects
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/blog"
-                  className="text-gray-600 transition-colors hover:text-blue-600 dark:text-gray-400 dark:hover:text-blue-400"
-                >
-                  Blog
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/contact"
-                  className="text-gray-600 transition-colors hover:text-blue-600 dark:text-gray-400 dark:hover:text-blue-400"
-                >
-                  Contact Me
-                </Link>
-              </li>
+              {["About Me", "My Projects", "Blog", "Contact Me"].map(
+                (item, index) => (
+                  <li key={index}>
+                    <Link
+                      href={`/${item.toLowerCase().replace(/\s+/g, "-")}`}
+                      className="text-sm text-gray-600 transition-colors hover:text-blue-600 dark:text-gray-400 dark:hover:text-blue-400 md:text-base"
+                    >
+                      {item}
+                    </Link>
+                  </li>
+                ),
+              )}
             </ul>
           </div>
 
           {/* Contact Section */}
           <div className="space-y-4">
-            <h3 className="text-xl font-bold">Get in Touch</h3>
-            <p className="text-gray-600 dark:text-gray-400">
+            <h3 className="text-lg font-bold md:text-xl">Get in Touch</h3>
+            <p className="text-sm text-gray-600 dark:text-gray-400 md:text-base">
               Interested in working together? Reach out to me via email or
               connect on LinkedIn.
             </p>
@@ -80,7 +60,7 @@ const Footer = () => {
                 rel="noopener noreferrer"
                 className="text-gray-600 transition-colors hover:text-blue-600 dark:text-gray-400 dark:hover:text-blue-400"
               >
-                <FaEnvelope className="h-6 w-6" />
+                <FaEnvelope className="h-6 w-6 md:h-7 md:w-7" />
               </a>
               <a
                 href="https://www.linkedin.com/in/mor-levi-73a364247"
@@ -88,7 +68,7 @@ const Footer = () => {
                 rel="noopener noreferrer"
                 className="text-gray-600 transition-colors hover:text-blue-600 dark:text-gray-400 dark:hover:text-blue-400"
               >
-                <FaLinkedin className="h-6 w-6" />
+                <FaLinkedin className="h-6 w-6 md:h-7 md:w-7" />
               </a>
               <a
                 href="https://github.com/morlevi836"
@@ -96,16 +76,15 @@ const Footer = () => {
                 rel="noopener noreferrer"
                 className="text-gray-600 transition-colors hover:text-blue-600 dark:text-gray-400 dark:hover:text-blue-400"
               >
-                <FaGithub className="text-2xl" />
+                <FaGithub className="h-6 w-6 md:h-7 md:w-7" />
               </a>
             </div>
           </div>
 
           {/* CTA Section */}
           <div className="space-y-4">
-            <h3 className="text-xl font-bold">Download My Resume</h3>
-
-            <p className="text-gray-600 dark:text-gray-400">
+            <h3 className="text-lg font-bold md:text-xl">Download My Resume</h3>
+            <p className="text-sm text-gray-600 dark:text-gray-400 md:text-base">
               Want to learn more about my professional background? Download my
               resume for a detailed overview.
             </p>
@@ -119,18 +98,9 @@ const Footer = () => {
                 toast({
                   title: "Resume Downloaded Successfully!",
                 });
-              }} // Close menu on click
+              }}
             >
-              <a
-                href="/resume/Resume - Mor Levi.pdf"
-                download
-                // className="inline-flex items-center rounded-lg bg-blue-600 px-6 py-2 text-white transition-colors hover:bg-blue-700 dark:bg-blue-700 dark:hover:bg-blue-800"
-                onClick={() =>
-                  toast({
-                    title: "Resume Downloaded Successfully!",
-                  })
-                }
-              >
+              <a href="/resume/Resume - Mor Levi.pdf" download>
                 <LuDownload className="mr-2 h-5 w-5" />
                 Download Resume
               </a>
@@ -144,7 +114,7 @@ const Footer = () => {
         {/* Bottom Section */}
         <div className="flex flex-col items-center justify-between space-y-4 md:flex-row md:space-y-0">
           {/* Copyright Notice */}
-          <p className="text-sm text-gray-600 dark:text-gray-400">
+          <p className="text-sm text-gray-600 dark:text-gray-400 md:text-base">
             &copy; {new Date().getFullYear()} Mor Levi. All rights reserved.
           </p>
 
@@ -153,8 +123,8 @@ const Footer = () => {
             onClick={scrollToTop}
             className="flex items-center text-gray-600 transition-colors hover:text-blue-600 dark:text-gray-400 dark:hover:text-blue-400"
           >
-            <span className="mr-2">Back to Top</span>
-            <FaArrowUp className="h-4 w-4" />
+            <span className="mr-2 text-sm md:text-base">Back to Top</span>
+            <FaArrowUp className="h-4 w-4 md:h-5 md:w-5" />
           </button>
         </div>
       </div>

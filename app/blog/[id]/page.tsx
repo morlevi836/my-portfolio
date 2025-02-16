@@ -8,13 +8,13 @@ const Article = dynamic(() => import("@/components/Article"));
 export async function generateMetadata({
   params,
 }: {
-  params: { id: string };
+  params?: { id?: string }; // Mark params as optional
 }): Promise<Metadata> {
-  // Ensure params is awaited before accessing its properties
-  const { id } = params;
+  if (!params?.id) {
+    return { title: "Article Not Found", description: "No article available." };
+  }
 
-  // Await the article data
-  const article = await getArticleById(id);
+  const article = await getArticleById(params.id);
 
   return {
     title: article?.title || "Article Not Found",
@@ -37,7 +37,6 @@ export default async function ArticlePage({
   const article = await getArticleById(id);
 
   // Fetch related articles based on the current article's tags
-
   if (!article) {
     return (
       <main className="flex flex-col bg-white text-gray-800 dark:bg-gray-900 dark:text-white">

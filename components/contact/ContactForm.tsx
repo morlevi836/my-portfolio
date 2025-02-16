@@ -40,6 +40,8 @@ const ContactForm = () => {
 
       reset();
     } catch (error) {
+      console.log(error);
+
       toast({
         title: "Error",
         description: "Failed to send message.",
