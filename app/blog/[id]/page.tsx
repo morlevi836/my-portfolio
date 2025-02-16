@@ -3,14 +3,14 @@
 import { useEffect, useState, useCallback } from "react";
 import { useParams } from "next/navigation";
 import dynamic from "next/dynamic";
-import { SkeletonLoading } from "@/components/SkeletonLoading";
 import { getArticleById } from "@/lib/devto";
 import { Skeleton } from "@/components/ui/skeleton";
+import { ArticleContent } from "@/types/ArticleContent";
 
 const Article = dynamic(() => import("@/components/Article"), { ssr: false });
 
 export default function ArticlePage() {
-  const [article, setArticle] = useState<any>(null);
+  const [article, setArticle] = useState<ArticleContent>();
   const [loading, setLoading] = useState(true);
 
   const { id } = useParams();
