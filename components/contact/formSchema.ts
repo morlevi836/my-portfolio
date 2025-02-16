@@ -1,8 +1,7 @@
 import { z } from "zod";
 
 // Regex to strip harmful characters and scripts
-const sanitizeInput = (value: string) =>
-  value.replace(/<\/?[^>]+(>|$)/g, ""); // Remove HTML tags
+const sanitizeInput = (value: string) => value.replace(/<\/?[^>]+(>|$)/g, ""); // Remove HTML tags
 
 export const formSchema = z.object({
   name: z
@@ -10,7 +9,7 @@ export const formSchema = z.object({
     .min(2, { message: "Name must be at least 2 characters." })
     .max(50, { message: "Name cannot exceed 50 characters." })
     .transform(sanitizeInput),
-  
+
   email: z
     .string()
     .email({ message: "Invalid email address." })

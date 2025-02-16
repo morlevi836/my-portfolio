@@ -1,4 +1,3 @@
-// components/AboutSection.tsx
 "use client";
 
 import { motion } from "framer-motion";
@@ -17,7 +16,7 @@ const AboutSection = () => {
         >
           <h2 className="mb-6 text-4xl font-bold sm:text-5xl">About Me</h2>
           <p className="mx-auto max-w-2xl text-lg text-gray-600 dark:text-gray-300 sm:text-xl">
-            Hi, I'm{" "}
+            Hi, I&#39;m{" "}
             <span className="font-semibold text-blue-600 dark:text-blue-400">
               Mor Levi
             </span>
@@ -26,8 +25,8 @@ const AboutSection = () => {
             <span className="font-semibold">React</span>,{" "}
             <span className="font-semibold">TypeScript</span>, and{" "}
             <span className="font-semibold">Node.js</span>, and I thrive in
-            fast-paced, high-pressure environments. When I’m not coding, I enjoy
-            mentoring others and exploring new technologies.
+            fast-paced, high-pressure environments. When I&#39;m not coding, I
+            enjoy mentoring others and exploring new technologies.
           </p>
         </motion.div>
 
@@ -48,7 +47,7 @@ const AboutSection = () => {
               <div className="w-1/2 pr-8 text-right">
                 <h3 className="text-2xl font-semibold">Experience</h3>
                 <p className="text-gray-600 dark:text-gray-300">
-                  I’ve spent 3 years in the Israeli Air Force, leading the
+                  I&#39;ve spent 3 years in the Israeli Air Force, leading the
                   development of mission-critical systems that improved
                   efficiency and streamlined workflows.
                 </p>

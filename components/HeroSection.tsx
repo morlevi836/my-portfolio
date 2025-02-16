@@ -64,7 +64,7 @@ const HeroSection = () => {
           transition={{ duration: 1, delay: 0.2 }}
           className="text-3xl font-bold drop-shadow-md sm:text-4xl"
         >
-          Hello, I'm{" "}
+          Hello, I&#39;m{" "}
           <span className="text-blue-600 dark:text-blue-400">Mor Levi</span>
         </motion.h1>
 
@@ -87,8 +87,9 @@ const HeroSection = () => {
           <Button className="rounded-full bg-blue-600 px-5 py-2 text-white shadow-md hover:bg-blue-500 dark:bg-blue-700 dark:hover:bg-blue-600 sm:px-6 sm:py-3">
             <Link href="/projects">View My Work</Link>
           </Button>
+
           <Button className="rounded-full bg-white px-5 py-2 text-blue-700 shadow-md hover:bg-gray-100 sm:px-6 sm:py-3">
-            <Link href="/contact">Let’s Connect</Link>
+            <Link href="/contact">Let&#39;s Connect</Link>
           </Button>
         </motion.div>
 

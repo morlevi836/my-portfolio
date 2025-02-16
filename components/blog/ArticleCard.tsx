@@ -20,7 +20,7 @@ export const ArticleCard = ({
 }: {
   article: Article;
   isGridView: boolean;
-  normalizeTags: (tags: any) => string[];
+  normalizeTags: (tags: string[] | string) => string[];
 }) => {
   const tags = normalizeTags(article.tag_list);
 
