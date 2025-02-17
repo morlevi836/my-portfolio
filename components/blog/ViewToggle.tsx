@@ -11,9 +11,15 @@ export const ViewToggle = ({
   toggleView: () => void;
 }) => {
   return (
-    <Toggle pressed={isGridView} onPressedChange={toggleView} className="gap-2">
-      {isGridView ? <FaList /> : <FaTh />}
-      {isGridView ? "List View" : "Grid View"}
+    <Toggle
+      pressed={isGridView}
+      onPressedChange={toggleView}
+      className="hidden md:inline-block"
+    >
+      <div className="flex items-center gap-2">
+        {isGridView ? <FaTh /> : <FaList />}
+        {isGridView ? "Grid View" : "List View"}
+      </div>
     </Toggle>
   );
 };

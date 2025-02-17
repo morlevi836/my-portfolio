@@ -22,6 +22,7 @@ export default function RelatedArticles({
                     layout="fill"
                     objectFit="cover"
                     className="rounded-lg"
+                    draggable={false}
                   />
                 </div>
               )}

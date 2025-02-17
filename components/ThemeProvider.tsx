@@ -19,7 +19,7 @@ export function ThemeProvider({ children, ...props }: ThemeProviderProps) {
   return (
     <NextThemesProvider
       attribute="class" // Use class-based theming
-      defaultTheme="light" // Default to system theme
+      defaultTheme="dark" // Default to system theme
       enableSystem // Enable system theme detection
       disableTransitionOnChange // Disable transition when changing themes
       {...props}

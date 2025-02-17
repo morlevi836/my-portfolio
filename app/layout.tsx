@@ -11,10 +11,10 @@ const assistant = Assistant({
 });
 
 export const metadata: Metadata = {
-  title: "My Portfolio",
-  description: "Welcome to my portfolio built with Next.js and TypeScript",
+  title: "Mor Levi",
+  description: "Welcome to my portfolio",
   icons: {
-    icon: "/icons/favicon.ico", // Path to your favicon in the public directory
+    icon: "/icons/favicon.ico",
   },
 };
 
@@ -28,7 +28,7 @@ export default function RootLayout({
       <body
         className={`${assistant.variable} h-screen w-screen overflow-x-hidden font-sans`}
       >
-        <ThemeProvider attribute="class" defaultTheme="system">
+        <ThemeProvider attribute="class" defaultTheme="dark">
           <LoadingScreen>{children}</LoadingScreen>
         </ThemeProvider>
       </body>

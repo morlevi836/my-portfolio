@@ -7,6 +7,13 @@ import { LuDownload } from "react-icons/lu";
 import { Button } from "./ui/button";
 
 const Footer = () => {
+  const footerItems = [
+    { label: "About Me", href: "/about" },
+    { label: "My Projects", href: "/projects" },
+    { label: "Blog", href: "/blog" },
+    { label: "Contact Me", href: "/contact" },
+  ];
+
   // Scroll to top function
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
@@ -31,18 +38,16 @@ const Footer = () => {
           <div className="space-y-4">
             <h3 className="text-lg font-bold md:text-xl">Quick Links</h3>
             <ul className="space-y-2">
-              {["About Me", "My Projects", "Blog", "Contact Me"].map(
-                (item, index) => (
-                  <li key={index}>
-                    <Link
-                      href={`/${item.toLowerCase().replace(/\s+/g, "-")}`}
-                      className="text-sm text-gray-600 transition-colors hover:text-blue-600 dark:text-gray-400 dark:hover:text-blue-400 md:text-base"
-                    >
-                      {item}
-                    </Link>
-                  </li>
-                ),
-              )}
+              {footerItems.map((item, index) => (
+                <li key={index}>
+                  <Link
+                    href={item.href}
+                    className="text-sm text-gray-600 transition-colors hover:text-blue-600 dark:text-gray-400 dark:hover:text-blue-400 md:text-base"
+                  >
+                    {item.label}
+                  </Link>
+                </li>
+              ))}
             </ul>
           </div>
 

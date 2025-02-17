@@ -21,12 +21,14 @@ const HeroSection = () => {
           alt="Background"
           fill
           className="object-cover opacity-50 dark:hidden"
+          draggable={false}
         />
         <Image
           src="/images/dark-background7.webp"
           alt="Background"
           fill
           className="hidden object-cover opacity-50 dark:block"
+          draggable={false}
         />
       </motion.div>
 

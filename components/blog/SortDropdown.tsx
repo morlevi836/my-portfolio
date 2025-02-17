@@ -20,7 +20,7 @@ export const SortDropdown = ({
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
-        <Button variant="outline" className="gap-2">
+        <Button variant="secondary" className="gap-2">
           <FaSort />
           {sortBy === "newest" && "Newest"}
           {sortBy === "oldest" && "Oldest"}

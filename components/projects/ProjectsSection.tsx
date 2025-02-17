@@ -157,7 +157,7 @@ const ProjectsSection = () => {
             {/* Sort Dropdown */}
             <DropdownMenu>
               <DropdownMenuTrigger asChild>
-                <Button variant="outline" className="w-full sm:w-auto">
+                <Button variant="secondary" className="w-full sm:w-auto">
                   <FaSort className="mr-2" />
                   {sortBy === "newest" && "Newest"}
                   {sortBy === "oldest" && "Oldest"}

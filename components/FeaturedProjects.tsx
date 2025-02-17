@@ -62,7 +62,7 @@ const FeaturedProjects = () => {
                       alt={project.title}
                       fill
                       className="h-48 w-full rounded-t-lg object-cover"
-                      draggable="false"
+                      draggable={false}
                     />
                   </CardHeader>
                   <CardContent>
