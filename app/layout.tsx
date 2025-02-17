@@ -3,6 +3,7 @@ import { Assistant } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/components/ThemeProvider";
 import LoadingScreen from "@/components/LoadingScreen";
+import { Analytics } from "@vercel/analytics/react";
 
 const assistant = Assistant({
   variable: "--font-assistant",
@@ -31,6 +32,8 @@ export default function RootLayout({
         <ThemeProvider attribute="class" defaultTheme="dark">
           <LoadingScreen>{children}</LoadingScreen>
         </ThemeProvider>
+
+        <Analytics />
       </body>
     </html>
   );
